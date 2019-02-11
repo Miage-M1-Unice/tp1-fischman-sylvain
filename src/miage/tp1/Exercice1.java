@@ -39,6 +39,20 @@ public class Exercice1 {
         }
     }
 
+    public void afficheParcoursProfondeur(String str){
+        File f = new File(str);
+        File[] liste = f.listFiles();
+        for(File path:liste) {
+            if (path.isFile()){
+                System.out.println(path);
+            }
+            else {
+                afficheParcoursProfondeur(path.toString());
+            }
+
+        }
+    }
+
     public void afficheListeFiltre(){
         FileFilter filter1 = new FileFilter() {
             @Override

@@ -11,5 +11,8 @@ public class Main {
         ex1.afficheListe2();
         ex1.afficheListeFiltre();
 
+        System.out.println("Parcours en profondeur");
+        ex1.afficheParcoursProfondeur(".");
+
     }
 }
