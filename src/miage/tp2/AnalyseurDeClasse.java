@@ -76,7 +76,17 @@ public class AnalyseurDeClasse {
     }
 
     public static void afficheAttributs(Class cl) {
-        // CODE A ECRIRE
+        System.out.println("// Champs");
+        Field[] attributs = cl.getFields();
+        for (int i = 0; i < attributs.length; i++) {
+            int n = attributs[i].getModifiers();
+            System.out.print(Modifier.toString(n) + " ");
+            System.out.print(attributs[i].getType() + " ");
+            System.out.print(attributs[i].getName());
+            if (i != attributs.length && attributs.length != 1){
+                System.out.print(";\n");
+            }
+        }
 
     }
 
