@@ -91,14 +91,20 @@ public class AnalyseurDeClasse {
     }
 
     public static void afficheConstructeurs(Class cl) {
-        // CODE A ECRIRE
-        System.out.println("{}");
+        System.out.println("// Constructeurs");
+        Constructor[] constructeurs = cl.getConstructors();
+        for (int i = 0; i < constructeurs.length; i++){
+            System.out.print(constructeurs[i]);
+            if (i != constructeurs.length && constructeurs.length != 1){
+                System.out.print(";\n");
+            }
+        }
 
     }
 
 
     public static void afficheMethodes(Class cl) {
-        // CODE A ECRIRE
+        System.out.println("// Methodes");
         System.out.println("{}");
     }
 
