@@ -1,4 +1,4 @@
-package miage.tp1;
+package miage.tp1.fileClass;
 import java.io.File;
 import java.io.FileFilter;
 
