@@ -15,7 +15,7 @@ public class AnalyseurDeClasse {
 
     public static void analyseClasse(String nomClasse) throws ClassNotFoundException {
         // Récupération d'un objet de type Class correspondant au nom passé en paramètres
-        Class cl =  nomClasse.getClass();
+        Class cl =  Class.forName(nomClasse);
 
         afficheEnTeteClasse(cl);
 
@@ -41,28 +41,43 @@ public class AnalyseurDeClasse {
     /** Cette méthode affiche par ex "public class Toto extends Tata implements Titi, Tutu {" */
     public static void afficheEnTeteClasse(Class cl) {
         //  Affichage du modifier et du nom de la classe
-        // CODE A ECRIRE
         int n = cl.getModifiers();
-        System.out.print(Modifier.toString(n));
+        System.out.print(Modifier.toString(n) + " ");
         System.out.print(cl.getSimpleName());
 
         // Récupération de la superclasse si elle existe (null si cl est le type Object)
         Class supercl = cl.getSuperclass();
 
-
         // On ecrit le "extends " que si la superclasse est non nulle et
         // différente de Object
-        // CODE A ECRIRE
+        if (supercl != null && Object.class != supercl) {
+            System.out.print(" extends ");
+            System.out.print(supercl.getSimpleName());
+
+
+
+        }
 
         // Affichage des interfaces que la classe implemente
-        // CODE A ECRIRE
+        Class[] interfaces = supercl.getInterfaces();
+        if (interfaces != null){
+            System.out.print(" implements ");
 
+            for (int i = 0; i < interfaces.length; i++) {
+                System.out.print(interfaces[i].getSimpleName());
+                if (i != interfaces.length && interfaces.length != 1){
+                    System.out.print(", ");
+                }
+            }
+
+        }
         // Enfin, l'accolade ouvrante !
         System.out.print(" {\n");
     }
 
     public static void afficheAttributs(Class cl) {
         // CODE A ECRIRE
+
     }
 
     public static void afficheConstructeurs(Class cl) {
@@ -70,13 +85,13 @@ public class AnalyseurDeClasse {
         System.out.println("{}");
 
     }
-}
+
 
     public static void afficheMethodes(Class cl) {
         // CODE A ECRIRE
         System.out.println("{}");
     }
-}
+
 
 public static String litChaineAuClavier() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
