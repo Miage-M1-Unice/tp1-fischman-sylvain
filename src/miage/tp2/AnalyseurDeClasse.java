@@ -105,7 +105,7 @@ public class AnalyseurDeClasse {
 
     public static void afficheMethodes(Class cl) {
         System.out.println("// Methodes");
-        Method[] methodes = cl.getMethods();
+        Method[] methodes = cl.getDeclaredMethods();
         for (int i = 0; i < methodes.length; i++){
             System.out.print(methodes[i]);
             if (i != methodes.length && methodes.length != 1){
