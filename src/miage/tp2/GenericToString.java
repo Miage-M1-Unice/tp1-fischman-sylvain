@@ -29,6 +29,14 @@ public class GenericToString {
         pol.getBounds();
       //  System.out.println(new GenericToString().toString(pol, 2));
     }
+    /*
+    toString(obj o, int prof){
+        if (prof == 0){
+            return "";
+        }
+        ...
+        toString(x,prof -1)
+    } */
 
 
 }
